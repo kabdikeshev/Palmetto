@@ -1,15 +1,12 @@
 package com.palmetto;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
 
     public static void main(String[] args) {
 	// write your code here
         Scanner scanner = new Scanner(System.in);
-        List<IngredientsEnum> usersIngredientList = new ArrayList<>();
         Pizza margarita = new Pizza();
 
         while (true) {
@@ -18,9 +15,14 @@ public class Main {
             switch (ingredientName) {
                 case "Pepperoni":
                     margarita.addIngredient(IngredientsEnum.Pepperoni);
-                    System.out.println("Вывод" + margarita.getIngredientsSet().get(0).name() + margarita.getIngredientsSet().get(0).getCost());
                     break;
             }
+            for (int i = 0; i < margarita.getIngredientsSet().size(); i++) {
+                System.out.println(margarita.getIngredientsSet().get(i).name() + " "
+                        + margarita.getIngredientsSet().get(i).getCost());
+            }
+
+            System.out.println();
         }
 
     }
