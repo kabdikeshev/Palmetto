@@ -11,7 +11,22 @@ public class Pizza {
     private List<IngredientsEnum> ingredientsSet = new ArrayList<IngredientsEnum>();
 
     public void addIngredient(IngredientsEnum ingredientsEnum){
-        ingredientsSet.add(ingredientsEnum);
+        boolean isUnique = true;
+
+        if (ingredientsSet.size() >= 7) {
+            System.out.println("Ошибка при попытке добавить ингридиент! Пицца переполнена!");
+        } else {
+            for (int i = 0 ; i < ingredientsSet.size(); i++) {
+                if (ingredientsSet.get(i).name().equals(ingredientsEnum.name())) {
+                    isUnique = false;
+                    System.out.println("Проверьте повторно ваш заказ! Данный ингридиент уже имеется в пицце");
+                }
+            }
+            if (isUnique) {
+                ingredientsSet.add(ingredientsEnum);
+            }
+        }
+
     }
 
     public String getName() {
